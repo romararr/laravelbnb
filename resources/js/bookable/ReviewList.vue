@@ -33,7 +33,7 @@
 
 export default {
   props: {
-    bookableId: String,
+    bookableId: [String, Number],
   },
   data() {
     return {
@@ -44,7 +44,7 @@ export default {
   created() {
     this.loading = true;
     axios
-      .get(`/api/bookable/${this.bookableId}/reviews`)
+      .get(`/api/bookables/${this.bookableId}/reviews`)
       .then((response) => {
         this.reviews = response.data.data;
 
